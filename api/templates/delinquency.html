@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="content">
+    <h1>Delinquency</h1>
+    <div class="task-directions">
+        <p>The delinquency task creates 3-day NTV documents.</p>
+        <p>The downloaded file contains individually named NTV documents to be dragged into resident profiles, and a master file of all NTV documents for printing. The master file is sorted for efficient delivery throughout the property.</p>
+        <p><i>Property Name</i>: the name that appears in front of each resident on the delinquency report</p>
+        <p><i>Post Date</i>: today's date </p>
+        <p><i>Due Date</i>: 3 days after today's date, excluding weekends and holidays</p>
+        <p class="list-head"><i>Delinquency Report</i>: run a deliqnuency report</p>
+        <ul>
+            <li>Add all charge codes</li>
+            <li>Deselect "primary residents only"</li>
+            <li>Select "notice" and "current" lease statuses</li>
+            <li>Copy and paste the resulting report into the text box</li>
+        </ul>
+    </div>
+</div>
+<div class="content second">
+    <form action="javascript:get_delinquency()">
+        <label for="property">Property Name</label>
+        <input type="text" name="property" id="property" placeholder="Valley View" required/>
+        <label for="post-date">Post Date</label>
+        <input type="date" name="post-date" id="post-date" required/>
+        <label for="due-date">Due Date</label>
+        <input type="date" name="due-date" id="due-date" required/>
+        <label for="del">Delinquency Report</label>
+        <textarea name="del" id="del" placeholder= "Property Name	15	Res#	Last, First	Primary	Current	1,528.27 	337.47 	0.00 	1,144.74 	721.00 	1,865.74
+    Property Name	22	Res#	Last, First	Primary	Current	999.00 	220.25 	0.00 	1,219.25 	0.00 	1,219.25 
+    etc..." required></textarea>
+        <div class="results">
+            <input type="submit" value="Run"/>
+            <div class="banner">|</div>
+        </div>
+    </form>
+</div>
+{% endblock %}

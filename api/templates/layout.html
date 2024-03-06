@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasket</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
+</head>
+
+<body>
+    <h1 class="title">Tasket</h1>
+    <div class="navbar">
+        <a href="{{ url_for('home') }}">Home</a>
+        <div class="dropdown">
+            <button class="dropbtn" onclick="nav_drop_down()">Tasks &#x25BE;</button>
+            <div class="dropdown-content" id="nav-dropdown">
+                <a href="{{ url_for('delinquency') }}">Delinquency</a>
+                <a href="{{ url_for('key_list') }}">Key List</a>
+                <a href="{{ url_for('property_walk') }}">Property Walk</a>
+                <a href="{{ url_for('utilities') }}">Utilities</a>
+                <a href="{{ url_for('transfer_form') }}">Transfer Form</a>
+            </div>
+        </div>
+    </div>
+    <main>
+        <div class="flex">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </main>
+    <br>
+    <footer>
+        <p>Author: Reid Spreiter</p>
+        <p>&copy;2024</p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.5/jszip.min.js"></script>
+    <script src="{{ url_for('static', filename='scripts/tasks.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/format.js') }}"></script>
+</body>
+
+</html>

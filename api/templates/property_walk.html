@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="content">
+    <h1>Property Walk</h1>
+    <div class="task-directions">
+        <p>The property walk task creates a map for efficient property walking.</p>
+        <p>Enter individual units or select entire buildings at once. If you'd like to pull keys for each unit on the map, select <i>Add Keys</i>. If you'd prefer to pull your keys in property-walk-order instead of alphabetical, select <i>Pull In Order</i>.</p>
+        <p>If you decide to pull keys, they will be included on the property map, which you can print and hold while you grab keys.</p>
+    </div>
+</div>
+<div class="content">
+    <form action="javascript:get_property_walk()">
+        <label for="units">Individual Units</label>
+        <input type="text" name="units" id="units" placeholder="1, 239, 68, 102, etc..."/>
+        <p style="margin-bottom:2px;">Select by Building:</p>
+        <div class="building-checkbox">
+            <label class="checkbox">
+                <input type="checkbox" name="building" id="b1" value="1">
+                <span class="custom-check"></span>1
+            </label>
+            <label class="checkbox">
+                <input type="checkbox" name="building" id="b2" value="2">
+                <span class="custom-check"></span>2
+            </label>
+            <label class="checkbox">
+                <input type="checkbox" name="building" id="b3" value="3">
+                <span class="custom-check"></span>3
+            </label>
+            <label class="checkbox">
+                <input type="checkbox" name="building" id="b4" value="4">
+                <span class="custom-check"></span>4
+            </label>
+        </div>
+        <div class="building-checkbox">
+            <label class="checkbox">
+                <input type="checkbox" name="building" id="b5" value="5">
+                <span class="custom-check"></span>5
+            </label>
+            <label class="checkbox">
+                <input type="checkbox" name="building" id="b6" value="6">
+                <span class="custom-check"></span>6
+            </label>
+            <label class="checkbox">
+                <input type="checkbox" name="building" id="b7" value="7">
+                <span class="custom-check"></span>7
+            </label>
+            <label class="checkbox">
+                <input type="checkbox" name="building" id="b8" value="8">
+                <span class="custom-check"></span>8
+            </label>
+        </div>
+        <label class="label-down" for="add-keys">Add Keys</label>
+        <label class="checkbox">
+                <input type="checkbox" name="add-keys" id="add-keys">
+                <span class="custom-check"></span>
+        </label>
+        <label class="label-down-down" for="pull-in-order">Pull In Order</label>
+        <label class="checkbox">
+                <input type="checkbox" name="pull-in-order" id="pull-in-order">
+                <span class="custom-check"></span>
+        </label>
+        <div class="results res-down">
+            <input type="submit" value="Run"/>
+            <div class="banner">|</div>
+        </div>
+    </form>
+</div>
+{% endblock %}

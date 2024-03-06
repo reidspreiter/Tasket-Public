@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="content">
+    <h1>Utilities</h1> 
+    <div class="task-directions">
+        <p>The utilities task reorders an invoice csv file into the account number order specified by the user.</p>
+        <p>To access the invoice csv file, obtain access to the utility company website used by the property. On the invoices page, you can download the invoice csv file, and paste its contents into this form.</p>
+        <p>The utility account numbers are in-order on the property's utility spreadsheet. Copy and paste the entire account number column into this form.</p>
+        <p>The result contains balances from the invoice csv ordered to reflect the user-entered account number order. These balances can then be pasted into the property's utility spreadsheet for later reference.</p>
+    </div>
+</div>
+<div class="content">
+    <form action="javascript:allocate_utilities()">
+        <label for="invoice">Invoice CSV</label>
+        <textarea name="invoice" id="invoice" placeholder= "Due in 6 days 
+Account #0000000-00
+Utility	11/20/2023	33.14
+Due in 6 days 
+Account #0000000-00
+Utility	11/20/2023	60.08
+..." required></textarea>
+        <label for="accounts">Account Numbers</label>
+        <textarea name="accounts" id="accounts" placeholder="0000000-00
+0000000-00
+0000000-00
+0000000-00
+0000000-00
+0000000-00
+..." required></textarea>
+        <div class="results">
+            <input type="submit" value="Run"/>
+            <div class="banner">|</div>
+        </div>
+        <div class="expanded-results"></div>
+    </form>
+</div>
+{% endblock %}
